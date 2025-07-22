@@ -298,9 +298,9 @@ int main(void)
 
 
 
-    	TIM2->CCR1 = 0;
+    	TIM2->CCR1 = 0; //pwm
     	TIM2->EGR.bit.UG = 1;//updates the regsiters
-    	TIM2->CCR1 = 300;
+    	TIM2->CCR1 = 300; //pwm
     	TIM2->EGR.bit.UG = 1;
 
 
