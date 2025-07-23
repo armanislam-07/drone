@@ -20,3 +20,8 @@ Project Outline :
 3. Having all four propellers synchronized
 4. Build the Frame (3d)
 5. Have the drone fly
+
+
+Things to be implemented in the future
+  1. Asserts and Cases ( safety )
+  
