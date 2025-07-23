@@ -1,3 +1,7 @@
+#ifndef REGISTERS_H
+#define REGISTERS_H
+
+
 #include <stdint.h>
 
 
@@ -16,6 +20,26 @@
 
 //GPIO
 #define GPIOA ((GPIO_T *)0x40010800)
+
+//RCC
+#define RCC_BASE ((RCC_T * ) 0x40021000) 
+
+//RCC Struc
+typedef struct{
+    uint32_t CR;
+    uint32_t CFGR;
+    uint32_t CIR;
+    uint32_t APB2RSTR;
+    uint32_t APB1RSTR;
+    uint32_t AHBENR;
+    uint32_t APB2ENR;
+    uint32_t APB1ENR;
+    uint32_t BDCR;
+    uint32_t CSR;
+}RCC_T;
+
+
+
 
 //timer Structure (Note that not all bit values are named due to them being UNUSED)
 typedef struct{
@@ -212,3 +236,6 @@ typedef struct
    uint32_t BRR;
    uint32_t LCKR;
 } GPIO_T;
+
+
+#endif 

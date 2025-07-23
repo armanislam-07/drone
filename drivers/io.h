@@ -1,3 +1,6 @@
+#ifndef IO_H
+#define IO_H
+
 
 #include "registers.h"
 
@@ -9,3 +12,5 @@
 
 
 void setpin( GPIO_T *GPIOx);
+
+#endif
