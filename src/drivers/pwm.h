@@ -4,6 +4,8 @@
 
 #include <stdint.h>
 
-void pwm_init(); //wait idk if i need this yet 
+
+
+void pwm_motorinit( uint8_t dutycyc_percent);
 
 #endif
