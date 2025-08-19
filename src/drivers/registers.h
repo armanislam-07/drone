@@ -8,40 +8,56 @@
 
 
 //timer
+#define TIM1 ((TIM_T*) 0x40012c00)
+#define TIM1_BDTR  (*(volatile uint32_t*)(0x40012C44))
+
 #define TIM2 ((TIM_T*) 0x40000000)
+#define TIM3 ((TIM_T*)0x40000400)
+#define TIM4 ((TIM_T*)0x40000800)
 
 //RCC
 #define RCC_APB1ENR *((uint32_t * ) 0x4002101c)
 #define RCC_APB1ENR_TIME2EN 1<<0
+#define RCC_APB1ENR_TIME3EN 1<<1
+#define RCC_APB1ENR_TIME4EN 1<<2
+
 #define RCC_APB2ENR *((uint32_t * )0x40021018)
 #define RCC_APB2ENR_IOPAEN 1<<2
+#define RCC_APB2ENR_IOPBEN 1<<3
+#define RCC_APB2ENR_IOPCEN 1<<4
+#define RCC_APB2ENR_AFIOEN 1<<0
+#define RCC_APB2ENR_TIME1EN 1<<11
 
 
+#define RCC_APB1ENR_I2C1EN 1<<17
+ 
+//i2c
+#define I2C1 ((I2C_T *)0x40005400)
 
 //GPIO
 #define GPIOA ((GPIO_T *)0x40010800)
+#define GPIOB ((GPIO_T *)0x40010c00)
+#define GPIOC ((GPIO_T *)0x40011000)
 
-//RCC
-#define RCC_BASE ((RCC_T * ) 0x40021000) 
-
-//RCC Struc
-typedef struct{
-    uint32_t CR;
-    uint32_t CFGR;
-    uint32_t CIR;
-    uint32_t APB2RSTR;
-    uint32_t APB1RSTR;
-    uint32_t AHBENR;
-    uint32_t APB2ENR;
-    uint32_t APB1ENR;
-    uint32_t BDCR;
-    uint32_t CSR;
-}RCC_T;
+//i2c
+typedef struct {
+    volatile uint32_t CR1;  
+    volatile uint32_t CR2;
+    volatile uint32_t OAR1;  
+    volatile uint32_t OAR2;
+    volatile uint32_t DR;  
+    volatile uint32_t SR1;
+    volatile uint32_t SR2;  
+    volatile uint32_t CCR;
+    volatile uint32_t TRISE;  
+    
 
 
+}I2C_T;
 
 
-//timer Structure (Note that not all bit values are named due to them being UNUSED)
+
+//timer Structure (Note that not all bit values are named due to them being UNUSED) ( add volatile)
 typedef struct{
     union{
         uint32_t reg;
@@ -161,7 +177,30 @@ typedef struct
         volatile uint32_t CNF7:2;
        }bit;
    }CRL;
-   uint32_t CRH;
+   union{
+    uint32_t reg;
+       struct {
+        volatile uint32_t MODE8:2;
+        volatile uint32_t CNF8:2;
+        volatile uint32_t MODE9:2;
+        volatile uint32_t CNF9:2;
+        volatile uint32_t MODE10:2;
+        volatile uint32_t CNF10:2;
+        volatile uint32_t MODE11:2;
+        volatile uint32_t CNF11:2;
+        volatile uint32_t MODE12:2;
+        volatile uint32_t CNF12:2;
+        volatile uint32_t MODE13:2;
+        volatile uint32_t CNF13:2;
+        volatile uint32_t MODE14:2;
+        volatile uint32_t CNF14:2;
+        volatile uint32_t MODE15:2;
+        volatile uint32_t CNF15:2;
+       }bit;
+
+
+
+   } CRH;
    uint32_t IDR;
    union{
         uint32_t reg;
