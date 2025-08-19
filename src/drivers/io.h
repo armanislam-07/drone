@@ -1,16 +1,35 @@
 #ifndef IO_H
 #define IO_H
 
-
+#include <stdint.h>
 #include "registers.h"
 
-#define GP_PUSH-PULL 0 
-#define GP_OPEN-DRAIN 1
-#define AF_PUSH-PULL 2
-#define AF_OPEN-DRAIN 3
 
 
+typedef enum{
+    GPIO_INPUT = 0,
+    GPIO_OUTPUT_10MHZ = 1,
+    GPIO_OUTPUT_2MHZ = 2,
+    GPIO_OUTPUT_50MHZ = 3
 
-void setpin( GPIO_T *GPIOx);
+
+} GPIO_MODE;
+
+
+typedef enum{
+    GPIO_GPPUSHPULL = 0, 
+    GPIO_GPOPENDRAIN = 1, 
+    GPIO_AFPUSHPULL = 2, 
+    GPIO_AFOPENDRAIN = 3, 
+    GPIO_ANALOG = 0,
+    GPIO_FLOATINGRESETSTATE = 1,
+    GPIO_INPUTPULLUPDOWN = 2
+
+}GPIO_CNF; 
+
+void setpin( GPIO_T *GPIOx, int8_t pin_number , GPIO_MODE mode, GPIO_CNF cnf);
+
+
+void ioinit(void);
 
 #endif
