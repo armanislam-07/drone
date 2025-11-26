@@ -28,12 +28,24 @@
 #define RCC_APB2ENR_AFIOEN 1<<0
 #define RCC_APB2ENR_TIME1EN 1<<11
 #define RCC_APB1ENR_I2C1EN 1<<21
-
-
 #define RCC_APB1ENR_I2C1EN 1<<17
  
+//mpu 6050
+#define MPU6050_ADDR     0x68 << 1  
+#define PWR_MGMT_1       0x6B
+#define ACCEL_XOUT_H     0x3B
+
 //i2c
 #define I2C1 ((I2C_T *)0x40005400)
+#define I2C_CR1_SWRST (1 << 15)
+#define I2C_CR1_PECEN (1 << 23)
+#define I2C_CR1_PE   (1 << 0)
+#define I2C_CR1_START   (1 << 8)
+#define I2C_CR1_STOP   (1 << 9)
+#define I2C_SR1_TXE   (1 << 7)
+#define I2C_CR1_ACK   (1 << 10)
+#define I2C_SR1_RXNE   (1 << 6)
+#define I2C_SR1_SB   (1 << 0)
 
 //GPIO
 #define GPIOA ((GPIO_T *)0x40010800)

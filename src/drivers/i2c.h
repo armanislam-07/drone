@@ -15,10 +15,8 @@ void i2c_stop ( void ) ;
 
 void i2c_write ( uint8_t data);
 
-void i2c_read_acknowledge(void) ;
+uint8_t i2c_read_ack(void) ;
 
-void i2c_read_nacknowledge(void);
-
-void i2c_read_registers(void);
+uint8_t i2c_read_nack(void);
 
 #endif
