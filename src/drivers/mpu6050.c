@@ -2,7 +2,6 @@
 #include "registers.h"
 #include "i2c.h"
 
-
 void mpu6050_init(void) {
     i2c_start();
     i2c_write(MPU6050_ADDR | 0); // Write

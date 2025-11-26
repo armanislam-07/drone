@@ -1,6 +1,5 @@
 #include <stdint.h>
 
-
 //RCC
 #define RCC_BASE ((RCC_T * ) 0x40021000) 
 #define FLASH_ACR (*(volatile uint32_t *)0x40022000)
@@ -17,12 +16,7 @@ typedef struct{
             uint32_t PLLON:1;
             uint32_t PLLRDY:1;
             uint32_t afterafter:6;
-
-
-
         }bit;
-
-
     } CR;
     union{
         uint32_t reg;
@@ -40,12 +34,7 @@ typedef struct{
             uint32_t res:1;
             uint32_t MCO:3;
             uint32_t reserved:3;
-
-
         }bit;
-
-
-
     } CFGR;
     uint32_t CIR;
     uint32_t APB2RSTR;
@@ -56,8 +45,6 @@ typedef struct{
     uint32_t BDCR;
     uint32_t CSR;
 }RCC_T;
-
- 
 
 // system_stm32f1xx.h
 void SystemInit(void){

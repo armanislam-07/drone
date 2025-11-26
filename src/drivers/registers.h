@@ -1,16 +1,11 @@
 #ifndef REGISTERS_H
 #define REGISTERS_H
 
-
 #include <stdint.h>
-
-
-
 
 //timer
 #define TIM1 ((TIM_T*) 0x40012c00)
 #define TIM1_BDTR  (*(volatile uint32_t*)(0x40012C44))
-
 #define TIM2 ((TIM_T*) 0x40000000)
 #define TIM3 ((TIM_T*)0x40000400)
 #define TIM4 ((TIM_T*)0x40000800)
@@ -20,7 +15,6 @@
 #define RCC_APB1ENR_TIME2EN 1<<0
 #define RCC_APB1ENR_TIME3EN 1<<1
 #define RCC_APB1ENR_TIME4EN 1<<2
-
 #define RCC_APB2ENR *((uint32_t * )0x40021018)
 #define RCC_APB2ENR_IOPAEN 1<<2
 #define RCC_APB2ENR_IOPBEN 1<<3
@@ -30,7 +24,7 @@
 #define RCC_APB1ENR_I2C1EN 1<<21
 #define RCC_APB1ENR_I2C1EN 1<<17
  
-//mpu 6050
+//MPU 6050
 #define MPU6050_ADDR     0x68 << 1  
 #define PWR_MGMT_1       0x6B
 #define ACCEL_XOUT_H     0x3B
@@ -52,7 +46,6 @@
 #define GPIOB ((GPIO_T *)0x40010c00)
 #define GPIOC ((GPIO_T *)0x40011000)
 
-//i2c
 typedef struct {
     volatile uint32_t CR1;  
     volatile uint32_t CR2;
@@ -63,9 +56,6 @@ typedef struct {
     volatile uint32_t SR2;  
     volatile uint32_t CCR;
     volatile uint32_t TRISE;  
-    
-
-
 }I2C_T;
 
 
@@ -77,21 +67,9 @@ typedef struct{
         struct{
             volatile uint32_t CEN:1;
             volatile uint32_t before: 6;
-
-
             volatile uint32_t APRE:1;
             volatile uint32_t after:8;
-
-
-
-
         }bit;
-
-
-
-
-
-
     } CR1;
     uint32_t CR2;
     uint32_t SMCR;
@@ -102,17 +80,7 @@ typedef struct{
     struct{
         volatile uint32_t UG:1;
         volatile uint32_t rest:15;
-
-
-
-
-
-
-
-
     }bit;
-
-
     }EGR;
     union{
         uint32_t reg;
@@ -125,16 +93,7 @@ typedef struct{
             volatile uint32_t CC2S:2;
             volatile uint32_t IC2PSC:2;
             volatile uint32_t IC2F:4;
-
-
-
-
-
-
         }bit;
-
-
-
     }CCMR1_Output;
     uint32_t CCMR2_Output;
     union{
@@ -142,15 +101,7 @@ typedef struct{
         struct{
             volatile uint32_t CC1E:1;
             volatile uint32_t rest:15; //not labeling the rest of the registers  bc i dont need to
-
-
         }bit;
-
-
-
-
-
-
     } CCER;
     uint32_t CNT;
     uint32_t PSC;
@@ -167,8 +118,6 @@ typedef struct{
 //GPIO Structure (Note that not all bit values are named due to them being UNUSED)
 typedef struct
 {
-
-
    union{
        uint32_t reg;
        struct {
@@ -210,9 +159,6 @@ typedef struct
         volatile uint32_t MODE15:2;
         volatile uint32_t CNF15:2;
        }bit;
-
-
-
    } CRH;
    uint32_t IDR;
    union{
@@ -236,11 +182,6 @@ typedef struct
         volatile uint32_t ODR14 :1;
         volatile uint32_t ODR15 :1;
         }bit;
-
-
-
-
-
    } ODR;
    union{
       uint32_t reg;
@@ -277,17 +218,10 @@ typedef struct
               volatile uint32_t BSSR29 :1;
               volatile uint32_t BSSR30 :1;
               volatile uint32_t BSSR31 :1;
-
-
       }bit;
-
-
-
-
    }BSSR;
    uint32_t BRR;
    uint32_t LCKR;
 } GPIO_T;
-
 
 #endif 

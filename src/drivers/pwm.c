@@ -1,11 +1,5 @@
-
-
-
-
 #include "pwm.h"
 #include "registers.h"
-
-//pwm -> duty cycle , timer clock , pwm mode , pwm period , 
 
 void pwm_motorinit( uint8_t dutycyc_percent){
     TIM2->CCR1 = dutycyc_percent; //duty cycle to 0
@@ -18,16 +12,12 @@ void pwm_motorinit( uint8_t dutycyc_percent){
     TIM2->EGR.bit.UG=1; //update generation
     TIM2->CR1.bit.CEN=1; //counter enable
 
-
     /*
     PSC is timer clock in MHZ
     ARR is PWM Period
 
     fPWM = (fTIMER)/ (PSC +1 ) * (ARR+1)
-    
-    
-    
-    
+
     for 20KHZ PWM and 72 MHz | ARR = 49
 
     
@@ -60,8 +50,6 @@ void pwm_motorinit( uint8_t dutycyc_percent){
     TIM1_BDTR |= (1 << 15);
     TIM1->CR1.reg |= 1;
 
-
-
     TIM3->PSC = 72-1;
     TIM3->ARR = 49 ;
 
@@ -73,6 +61,4 @@ void pwm_motorinit( uint8_t dutycyc_percent){
     TIM3->CCR1 = 25;
     TIM3->CCR2 =25 ;
     TIM3->CR1.reg |= 1;
-
-
 }
