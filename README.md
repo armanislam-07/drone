@@ -5,6 +5,8 @@ Over the 2025 summer break, I decided to take on a project to build a drone (or 
 
 In short, this is a bare-metal quadcopter/drone project built entirely from the ground up.
 
+![Drone Base Image](Base Image.JPG)
+
 ## Current Limitations
   - Project does not currently support RC Control (may be added in the future)
   - The drone is intended to fly briefly (~30 seconds) before motors are safely stopped and it lowers it altitude to ground level
