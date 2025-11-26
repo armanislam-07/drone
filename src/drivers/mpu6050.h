@@ -4,17 +4,11 @@
 
 #include <stdint.h>
 
-void MPU6050_init(void);
+
+void mpu6050_init(void);
 
 
-void readadccel ( void); //change later
-
-void readgyro ( void) ; // change later 
-
-
-
-
-
+void mpu6050_read_accel(int16_t *ax, int16_t *ay, int16_t *az);
 
 
 
