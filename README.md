@@ -1,22 +1,21 @@
 # drone
 
-Over summer break and currently I have decieded to work on a project to build a drone( or in brutish terms "flying machine" ) This repository tracks the code of the flying machine as I write all the code from scratch ( including drivers ). So, no arduino. The only things from this project I have not made and am using are the "STM32F103RBTX_FLASH.ld" to flash the code onto the MPU and the startup file "startup_stm32f103rbtx.s" 
+## Summary 
+Over the 2025 summer break, I decided to take on a project to build a drone (or in the most brutish terms to describe this project a "flying machine" ). This repository tracks all the code for the drone, written entirely from scratch (including drivers). No external libraries or HAL are used except the startup file and the linker file. 
 
-In short, this is a project to build a drone/quadcopter from scratch/bare-metal. 
+In short, this is a bare-metal quadcopter/drone project built entirely from the ground up.
 
-Some limitations of this project currently:
-  - Project is NOT intended to be able to control it by RC (although may in the future ) it is to get to know baremetal embedded . It IS intended to have the drone fly (for around 10 seconds then killing the motors) 
+## Current Limitations
+  - Project does not currently support RC Control (may be added in the future)
+  - The drone is intended to fly briefly (~30 seconds) before motors are safely stopped and it lowers it altitude to ground level
 
+## Specifications 
+   Dimensions of the drone: 12x12x3 inches (to be updated as later revissions occur)  
+   Brushed DC motors 
+   LP9110s motor drivers 
+   F103RB microcontroler
+   DJI Tello Propllers  
 
-Dimensions of the drone: ___x__ __x__ ___x_ __x_ 
-Brushed DC motors 
-LP9110s 
-F103RB microcontroler
-DJI Tello Propllers  
-
-
-
-Things to be implemented in the future
-  1. Asserts and Cases ( safety )
-  2. RC CONTROL
-  
+## Planned Features
+  - Asserts & Cases to ensure safe operations
+  - RC Control
